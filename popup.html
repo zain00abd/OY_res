@@ -1,0 +1,197 @@
+<!doctype html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <title>حجزك</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --bg:#0f1220;
+      --card:#171a2b;
+      --muted:#9aa3b2;
+      --text:#e6e9f2;
+      --accent:#6ea8fe;
+      --accent2:#9b8cff;
+      --error:#ff6b6b;
+      --ring:#2a2f46;
+      --ringFocus:#39406a;
+      --shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.04);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      background:linear-gradient(145deg,#0b0e1a,#141a2e);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--text)
+    }
+    .wrap{width:320px; padding:16px}
+    .card{
+      background: var(--card);
+      border:1px solid var(--ring);
+      border-radius:16px;
+      padding:16px;
+      box-shadow: var(--shadow);
+    }
+    label{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+    .field{
+      background:#0f1326;
+      border:1px solid var(--ring);
+      border-radius:12px;
+      padding:8px 10px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      transition:border-color .15s, box-shadow .15s;
+    }
+    .field:focus-within{
+      border-color:var(--ringFocus);
+      box-shadow:0 0 0 4px rgba(110,168,254,.12);
+    }
+    .field input{
+      background:transparent;
+      border:0;
+      outline:0;
+      width:100%;
+      color:var(--text);
+      font-size:14px;
+      text-align:center;
+    }
+    .hint{font-size:11px; color:var(--muted); margin-top:4px}
+    .btn{
+      margin-top:12px;
+      width:100%;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid transparent;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      color:white;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(110,168,254,.35);
+      transition:transform .06s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .inline{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:10px;
+    }
+    .inline label{
+      margin:0;
+      font-size:13px;
+      color:var(--text);
+      white-space:nowrap;
+    }
+    .inline input{
+      width:110px;
+      text-align:center;
+      padding:6px 8px;
+      background:#0f1326;
+      border:1px solid var(--ring);
+      border-radius:8px;
+      color:var(--text);
+      font-size:13px;
+    }
+    .icon{
+      width:16px;
+      height:16px;
+      color:var(--muted);
+      flex-shrink:0;
+    }
+    .icon svg{
+      width:100%;
+      height:100%;
+      stroke:var(--muted);
+      stroke-width:2;
+      fill:none;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <!-- رقم الحجز صغير وبجانبه النص -->
+      <div class="inline">
+        <label for="reservation">رقم الحجز</label>
+        <input id="reservation" inputmode="numeric" pattern="[0-9]*" placeholder="123456" />
+      </div>
+
+      <div style="margin-bottom:10px">
+        <label>الاسم</label>
+        <div class="field">
+          <span class="icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+          </span>
+          <input id="firstName" placeholder="اكتب الاسم" autocomplete="off" />
+        </div>
+      </div>
+
+      <div style="margin-bottom:10px">
+        <label>الكنية</label>
+        <div class="field">
+          <span class="icon">
+            <svg viewBox="0 0 24 24"><path d="M4 17v-6a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v6"/><path d="M7 21h10"/></svg>
+          </span>
+          <input id="lastName" placeholder="اكتب الكنية" autocomplete="off" />
+        </div>
+      </div>
+
+      <div style="margin-bottom:10px">
+        <label>الايميل</label>
+        <div class="field">
+          <span class="icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8 8-8"/></svg>
+          </span>
+          <input id="email" type="email" placeholder="name@example.com" autocomplete="off" />
+        </div>
+      </div>
+
+      <div style="margin-bottom:10px">
+        <label>الباسبور</label>
+        <div class="field">
+          <span class="icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8"/><path d="M3.6 15h16.8"/><path d="M12 3a15 15 0 0 1 0 18"/></svg>
+          </span>
+          <input id="passport" placeholder="رقم الوثيقة" autocomplete="off" />
+        </div>
+      </div>
+
+      <div style="margin-bottom:10px">
+        <label>الهاتف</label>
+        <div class="field">
+          <span class="icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92V21a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 5.18 2 2 0 0 1 5 3h4.09a1 1 0 0 1 1 .75l1.3 5a1 1 0 0 1-.27.95l-2.2 2.2a16 16 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 .95-.27l5 1.3a1 1 0 0 1 .75 1z"/></svg>
+          </span>
+          <input id="phone" type="tel" placeholder="+966501234567" autocomplete="off" />
+        </div>
+      </div>
+
+      <!-- الوقت المستهدف -->
+      <div style="margin-bottom:10px">
+        <label>الوقت المستهدف بصيغة HH:MM:SS</label>
+        <div class="field">
+          <span class="icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </span>
+          <input id="targetTime" type="text" placeholder="01:12:00" autocomplete="off" />
+        </div>
+        <div class="hint">مثال 01:12:00</div>
+      </div>
+
+      <button class="btn" id="saveBtn">حفظ</button>
+      <div class="hint" id="msg" aria-live="polite"></div>
+    </div>
+  </div>
+
+<script src="popup.js"></script>
+
+</body>
+</html>
