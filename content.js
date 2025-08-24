@@ -11,6 +11,8 @@
 (function() {
     'use strict';
 
+    localStorage.setItem(window.location.pathname,window.location.href)
+
     console.log(window.location.pathname)
     console.log("zain1")
 
